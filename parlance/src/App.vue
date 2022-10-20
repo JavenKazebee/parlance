@@ -2,10 +2,8 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { useQuasar } from 'quasar';
 
-export default defineComponent({
-  name: 'App'
-});
+useQuasar().dark.set(true);
 </script>
