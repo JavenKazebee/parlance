@@ -20,7 +20,7 @@ export class IPA {
   }
 }
 
-enum Manner {
+export enum Manner {
   Plosive,
   Nasal,
   Trill,
@@ -31,7 +31,7 @@ enum Manner {
   LateralApproximant,
 }
 
-enum Place {
+export enum Place {
   Bilabial,
   Labiodental,
   Dental,
@@ -45,7 +45,7 @@ enum Place {
   Glottal,
 }
 
-export const IPACharacters: IPA[] = [
+export const ipa: IPA[] = [
   new IPA('p', Manner.Plosive, Place.Bilabial, true, false),
   new IPA('b', Manner.Plosive, Place.Bilabial, true, true),
   new IPA('t', Manner.Plosive, Place.Alveolar, true, false),

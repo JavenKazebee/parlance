@@ -1,29 +1,30 @@
 <template>
   <div
-    v-if="props.editing || store.containsConsonant(props.sound)"
-    :class="{ 'active-sound': store.containsConsonant(props.sound) }"
+    v-if="props.editing || store.containsSound(props.sound)"
+    :class="{ 'active-sound': store.containsSound(props.sound) }"
     class="sound"
     @click="toggleSound()"
   >
-    {{ props.sound }}
+    {{ props.sound.char }}
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useLanguageStore } from 'src/stores/language';
+import { IPA } from 'src/ts/ipa';
 
 const props = defineProps<{
-  sound: string;
+  sound: IPA;
   editing: boolean;
 }>();
 
 const store = useLanguageStore();
 
 function toggleSound() {
-  if (store.containsConsonant(props.sound)) {
-    store.removeConsonant(props.sound);
+  if (store.containsSound(props.sound)) {
+    store.removeSound(props.sound);
   } else {
-    store.addConsonant(props.sound);
+    store.addSound(props.sound);
   }
 }
 </script>

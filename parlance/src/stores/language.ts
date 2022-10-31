@@ -1,32 +1,36 @@
 import { defineStore } from 'pinia';
+import { IPA } from 'src/ts/ipa';
 
 export const useLanguageStore = defineStore('language', {
   state: () => ({
-    consonants: [] as string[],
+    sounds: [] as IPA[],
   }),
 
   getters: {
-    containsConsonant() {
-      return (sound: string): boolean => {
-        const index = this.consonants.indexOf(sound);
+    containsSound() {
+      return (sound: IPA): boolean => {
+        const index = this.sounds.indexOf(sound);
+
+        // If > -1, the sound was found
         if (index > -1) {
           return true;
         }
 
+        // Otherwise, the sound was not found
         return false;
       };
     },
   },
 
   actions: {
-    addConsonant(sound: string) {
-      this.consonants.push(sound);
+    addSound(sound: IPA) {
+      this.sounds.push(sound);
     },
 
-    removeConsonant(sound: string) {
-      const index = this.consonants.indexOf(sound);
+    removeSound(sound: IPA) {
+      const index = this.sounds.indexOf(sound);
       if (index != -1) {
-        this.consonants.splice(index, 1);
+        this.sounds.splice(index, 1);
       }
     },
   },

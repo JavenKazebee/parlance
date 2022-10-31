@@ -1,5 +1,5 @@
 <template>
-  <td :colspan="props.colspan">
+  <td :colspan="props.colspan" :props="td">
     <div class="row items-center justify-center q-gutter-sm">
       <slot />
     </div>
@@ -12,5 +12,6 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  td: {},
 });
 </script>
