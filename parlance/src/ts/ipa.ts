@@ -21,6 +21,7 @@ export class IPA {
 }
 
 export enum Manner {
+  // Consonants
   Plosive,
   Nasal,
   Trill,
@@ -29,6 +30,14 @@ export enum Manner {
   LateralFricative,
   Approximant,
   LateralApproximant,
+  // Vowels
+  Close,
+  NearClose,
+  CloseMid,
+  Mid,
+  OpenMid,
+  NearOpen,
+  Open,
 }
 
 export enum Place {
@@ -43,7 +52,18 @@ export enum Place {
   Uvular,
   Pharyngeal,
   Glottal,
+  Front,
+  Central,
+  Back,
 }
+
+export const emptyIPA = new IPA(
+  '',
+  Manner.Approximant,
+  Place.Alveolar,
+  false,
+  false
+);
 
 export const ipa: IPA[] = [
   new IPA('p', Manner.Plosive, Place.Bilabial, true, false),
@@ -58,6 +78,7 @@ export const ipa: IPA[] = [
   new IPA('g', Manner.Plosive, Place.Velar, true, true),
   new IPA('q', Manner.Plosive, Place.Uvular, true, false),
   new IPA('ɢ', Manner.Plosive, Place.Uvular, true, true),
+  new IPA('ʔ', Manner.Plosive, Place.Glottal, true, true),
 
   new IPA('m', Manner.Nasal, Place.Bilabial, true, true),
   new IPA('ɱ', Manner.Nasal, Place.Labiodental, true, true),
@@ -111,4 +132,45 @@ export const ipa: IPA[] = [
   new IPA('ɭ', Manner.LateralApproximant, Place.Retroflex, true, true),
   new IPA('ʎ', Manner.LateralApproximant, Place.Palatal, true, true),
   new IPA('ʟ', Manner.LateralApproximant, Place.Velar, true, true),
+
+  // Vowels
+  new IPA('i', Manner.Close, Place.Front, false, false),
+  new IPA('y', Manner.Close, Place.Front, false, true),
+  new IPA('ɨ', Manner.Close, Place.Central, false, false),
+  new IPA('ʉ', Manner.Close, Place.Central, false, true),
+  new IPA('ɯ', Manner.Close, Place.Back, false, false),
+  new IPA('u', Manner.Close, Place.Back, false, true),
+
+  new IPA('I', Manner.NearClose, Place.Front, false, false),
+  new IPA('Y', Manner.NearClose, Place.Front, false, true),
+  new IPA('Ʊ', Manner.NearClose, Place.Back, false, false),
+
+  new IPA('e', Manner.CloseMid, Place.Front, false, false),
+  new IPA('ø', Manner.CloseMid, Place.Front, false, true),
+  new IPA('ɘ', Manner.CloseMid, Place.Central, false, false),
+  new IPA('ɵ', Manner.CloseMid, Place.Central, false, true),
+  new IPA('ɤ', Manner.CloseMid, Place.Back, false, false),
+  new IPA('o', Manner.CloseMid, Place.Back, false, true),
+
+  new IPA('e̞', Manner.Mid, Place.Front, false, false),
+  new IPA('ø̞', Manner.Mid, Place.Front, false, true),
+  new IPA('ə', Manner.Mid, Place.Central, false, false),
+  new IPA('ɤ̞', Manner.Mid, Place.Back, false, false),
+  new IPA('o̞', Manner.Mid, Place.Back, false, true),
+
+  new IPA('ɛ', Manner.OpenMid, Place.Front, false, false),
+  new IPA('œ', Manner.OpenMid, Place.Front, false, true),
+  new IPA('ɜ', Manner.OpenMid, Place.Central, false, false),
+  new IPA('ɞ', Manner.OpenMid, Place.Central, false, true),
+  new IPA('ʌ', Manner.OpenMid, Place.Back, false, false),
+  new IPA('ɔ', Manner.OpenMid, Place.Back, false, true),
+
+  new IPA('æ', Manner.NearOpen, Place.Front, false, false),
+  new IPA('ɐ', Manner.NearOpen, Place.Central, false, false),
+
+  new IPA('a', Manner.Open, Place.Front, false, false),
+  new IPA('ɶ', Manner.Open, Place.Front, false, true),
+  new IPA('ä', Manner.Open, Place.Central, false, false),
+  new IPA('ɑ', Manner.Open, Place.Back, false, false),
+  new IPA('ɒ', Manner.Open, Place.Back, false, true),
 ];
