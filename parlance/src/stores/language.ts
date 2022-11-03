@@ -4,6 +4,7 @@ import { IPA } from 'src/ts/ipa';
 export const useLanguageStore = defineStore('language', {
   state: () => ({
     sounds: [] as IPA[],
+    spellings: new Map<string, string>(),
   }),
 
   getters: {

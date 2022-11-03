@@ -1,20 +1,25 @@
 import { useLanguageStore } from 'src/stores/language';
+import generateSounds from './genSounds';
 import { ipa, IPA, Manner, Place } from './ipa';
-import { between, weighted } from './utils';
+import { weighted } from './utils';
 
 const store = useLanguageStore();
 
-export default function genConsonants(): IPA[] {
-  console.log(store.sounds);
+export default function genConsonants() {
   // Clear exising consonants
   const newStore: IPA[] = [];
-  for (let i = 0; i < store.sounds.length; ++i) {
-    if (!store.sounds[i].consonant) {
-      newStore.push(store.sounds[i]);
+  for (const sound of store.sounds) {
+    if (!sound.consonant) {
+      newStore.push(sound);
     }
   }
 
-  store.sounds = newStore;
+  // Clear store
+  store.$reset();
+  // Add vowels back in
+  for (const sound of newStore) {
+    store.addSound(sound);
+  }
 
   // Obstruents (Plosives, Fricatives, and Lateral Fricatives)
   const bilabials = weighted<number>([50, 5, 5, 15, 25], [0, 1, 2, 3, 4]);
@@ -75,8 +80,6 @@ export default function genConsonants(): IPA[] {
       sound.manner == Manner.LateralApproximant
   );
   generateSounds(approximantOptions, approximants);
-
-  return [];
 }
 
 function generateObstruents(place: Place, amount: number) {
@@ -90,12 +93,4 @@ function generateObstruents(place: Place, amount: number) {
   );
 
   generateSounds(options, amount);
-}
-
-function generateSounds(options: IPA[], amount: number) {
-  for (let i = 0; i < amount; ++i) {
-    const rand = between(0, options.length - 1);
-    store.addSound(options[rand]); // Add it to the store
-    options.splice(rand, 1); // Remove from options
-  }
 }

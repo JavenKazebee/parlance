@@ -13,7 +13,7 @@
           :data="consonantData"
         />
       </SectionCard>
-      <SectionCard title="Vowels" v-slot="slotProps">
+      <SectionCard title="Vowels" v-slot="slotProps" @generate="generateVowels">
         <IPATable
           :editing="slotProps.editing"
           :columnHeaders="vowelColumnHeaders"
@@ -31,9 +31,14 @@ import IPATable from 'src/components/IPATable.vue';
 import SectionCard from 'src/components/SectionCard.vue';
 import genConsonants from 'src/ts/genConsonants';
 import { ipa, emptyIPA } from 'src/ts/ipa';
+import genVowels from 'src/ts/genVowels';
 
 function generateConsonants() {
   genConsonants();
+}
+
+function generateVowels() {
+  genVowels();
 }
 
 const consonantColumnHeaders = [
