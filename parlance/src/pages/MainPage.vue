@@ -1,7 +1,11 @@
 <template>
   <q-page>
     <div class="row">
-      <SectionCard title="Consonants" v-slot="slotProps">
+      <SectionCard
+        :title="'Consonants'"
+        v-slot="slotProps"
+        @generate="generateConsonants"
+      >
         <IPATable
           :editing="slotProps.editing"
           :columnHeaders="consonantColumnHeaders"
@@ -25,7 +29,12 @@
 import { QPage } from 'quasar';
 import IPATable from 'src/components/IPATable.vue';
 import SectionCard from 'src/components/SectionCard.vue';
+import genConsonants from 'src/ts/genConsonants';
 import { ipa, emptyIPA } from 'src/ts/ipa';
+
+function generateConsonants() {
+  genConsonants();
+}
 
 const consonantColumnHeaders = [
   'Bilabial',

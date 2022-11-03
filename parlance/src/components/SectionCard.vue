@@ -13,7 +13,7 @@
       <q-btn icon="lock_open" round flat v-if="!editing">
         <q-tooltip>Lock</q-tooltip>
       </q-btn>
-      <q-btn icon="autorenew" round flat v-if="!editing">
+      <q-btn icon="autorenew" round flat v-if="!editing" @click="generate">
         <q-tooltip>Generate</q-tooltip>
       </q-btn>
     </q-card-section>
@@ -26,6 +26,8 @@ import { ref, computed } from 'vue';
 defineProps<{
   title: string;
 }>();
+
+const emit = defineEmits(['generate']);
 
 let editing = ref(false);
 
@@ -42,4 +44,8 @@ const editTooltip = computed(() => {
   if (editing.value) return 'Save';
   return 'Edit';
 });
+
+function generate() {
+  emit('generate');
+}
 </script>
