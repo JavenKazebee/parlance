@@ -5,6 +5,8 @@ export const useLanguageStore = defineStore('language', {
   state: () => ({
     sounds: [] as IPA[],
     spellings: new Map<string, string>(),
+    stress: '',
+    syllables: '',
   }),
 
   getters: {

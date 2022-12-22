@@ -2,26 +2,33 @@
   <q-page>
     <div class="row">
       <SectionCard
-        :title="'Consonants'"
-        v-slot="slotProps"
+        title="Consonants"
+        :editing="editingConsonants"
         @generate="generateConsonants"
+        @editing="editingConsonants = !editingConsonants"
       >
         <IPATable
-          :editing="slotProps.editing"
+          :editing="editingConsonants"
           :columnHeaders="consonantColumnHeaders"
           :rowHeaders="consonantRowHeaders"
           :data="consonantData"
         />
       </SectionCard>
-      <SectionCard title="Vowels" v-slot="slotProps" @generate="generateVowels">
+      <SectionCard
+        title="Vowels"
+        :editing="editingVowels"
+        @generate="generateVowels"
+        @editing="editingVowels = !editingVowels"
+      >
         <IPATable
-          :editing="slotProps.editing"
+          :editing="editingVowels"
           :columnHeaders="vowelColumnHeaders"
           :rowHeaders="vowelRowHeaders"
           :data="vowelData"
         />
       </SectionCard>
     </div>
+    <div class="row"></div>
   </q-page>
 </template>
 
@@ -32,6 +39,12 @@ import SectionCard from 'src/components/SectionCard.vue';
 import genConsonants from 'src/ts/genConsonants';
 import { ipa, emptyIPA } from 'src/ts/ipa';
 import genVowels from 'src/ts/genVowels';
+import { ref } from 'vue';
+import { genStress } from 'src/ts/genStress';
+import StressDisplay from 'src/components/StressDisplay.vue';
+
+let editingConsonants = ref(false);
+let editingVowels = ref(false);
 
 function generateConsonants() {
   genConsonants();
@@ -578,5 +591,8 @@ const vowelData = [
 <style lang="scss" scoped>
 .card {
   margin: 3rem 0rem 0rem 3rem;
+}
+.row {
+  align-items: flex-start;
 }
 </style>

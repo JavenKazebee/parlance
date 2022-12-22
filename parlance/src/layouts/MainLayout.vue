@@ -1,15 +1,28 @@
 <template>
-  <q-layout view="hhh LpR fff">
+  <q-layout view="hhh lpr fff">
     <q-header>
       <div class="row">
         <div class="text-h4 header-text">Parlance</div>
       </div>
     </q-header>
 
+    <q-drawer side="left" v-model="drawer">
+      <q-list>
+        <template v-for="item in menu" :key="item">
+          <q-item
+            clickable
+            @click="navToPage(item)"
+            :active="route.path == item.route"
+          >
+            <q-item-section> {{ item.label }} </q-item-section>
+          </q-item>
+        </template>
+      </q-list>
+    </q-drawer>
+
     <q-page-container>
       <router-view />
     </q-page-container>
-
     <q-footer>
       <div class="row">
         <div class="footer-text">Created by Javen Kazebee</div>
@@ -18,7 +31,36 @@
   </q-layout>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
+const drawer = ref(true);
+
+interface MenuItem {
+  label: string;
+  route: string;
+}
+
+const menu: MenuItem[] = [
+  {
+    label: 'Phonology',
+    route: '/',
+  },
+  {
+    label: 'Phonotactics',
+    route: '/phonotactics',
+  },
+  { label: 'Spelling', route: '/spelling' },
+  { label: 'Words', route: '/words' },
+];
+
+function navToPage(item: MenuItem) {
+  router.push(item.route);
+}
+</script>
 
 <style scoped lang="scss">
 .header {

@@ -7,7 +7,7 @@
     <slot :editing="editing"></slot>
 
     <q-card-section class="row justify-end">
-      <q-btn :icon="editSymbol" round flat @click="toggleEditing()">
+      <q-btn :icon="editSymbol" round flat @click="$emit('editing')">
         <q-tooltip>{{ editTooltip }}</q-tooltip>
       </q-btn>
       <q-btn icon="lock_open" round flat v-if="!editing">
@@ -21,27 +21,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   title: string;
+  editing: boolean;
 }>();
 
-const emit = defineEmits(['generate']);
-
-let editing = ref(false);
-
-function toggleEditing() {
-  editing.value = !editing.value;
-}
+const emit = defineEmits(['generate', 'editing']);
 
 const editSymbol = computed(() => {
-  if (editing.value) return 'save';
+  if (props.editing) return 'save';
   return 'edit';
 });
 
 const editTooltip = computed(() => {
-  if (editing.value) return 'Save';
+  if (props.editing) return 'Save';
   return 'Edit';
 });
 
