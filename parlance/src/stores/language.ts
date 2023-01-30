@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { IPA } from 'src/ts/ipa';
+import { IPA, Manner } from 'src/ts/ipa';
 
 export const useLanguageStore = defineStore('language', {
   state: () => ({
@@ -7,6 +7,8 @@ export const useLanguageStore = defineStore('language', {
     spellings: new Map<string, string>(),
     stress: '',
     syllables: '',
+    onsets: [] as Manner[],
+    codas: [] as Manner[],
   }),
 
   getters: {

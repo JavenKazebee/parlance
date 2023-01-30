@@ -7,10 +7,8 @@ export function genSyllables() {
   store.syllables = syllableOptions[between(0, syllableOptions.length)];
 }
 
-export const syllableOptions = [
-  '(C)V(C)',
-  'CV(C)',
-  'CVC',
-  '(C)CV(C)(C)',
-  '(C)CVC(C)',
-];
+// C = Consonant
+// V = Vowel
+// D = Optional Constant
+// W = Optional Vowel
+export const syllableOptions = ['CV', 'CVD', 'DVC', 'DCVCD', 'DCVWCD'];

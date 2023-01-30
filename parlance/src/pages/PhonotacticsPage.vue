@@ -19,7 +19,12 @@
         <SyllableDisplay :editing="editingSyllables" />
       </SectionCard>
 
-      <SectionCard title="Rules" :editing="false">
+      <SectionCard
+        title="Rules"
+        :editing="editingRules"
+        @generate="generateRules"
+        @editing="editingRules = !editingRules"
+      >
         <RulesDisplay />
       </SectionCard>
     </div>
@@ -34,9 +39,11 @@ import { genStress } from 'src/ts/genStress';
 import { genSyllables } from 'src/ts/genSyllables';
 import SyllableDisplay from 'src/components/SyllableDisplay.vue';
 import RulesDisplay from 'src/components/RulesDisplay.vue';
+import { genRules } from 'src/ts/genRules';
 
 let editingStress = ref(false);
 let editingSyllables = ref(false);
+let editingRules = ref(false);
 
 function generateStress() {
   genStress();
@@ -44,6 +51,10 @@ function generateStress() {
 
 function generateSyllables() {
   genSyllables();
+}
+
+function generateRules() {
+  genRules();
 }
 </script>
 

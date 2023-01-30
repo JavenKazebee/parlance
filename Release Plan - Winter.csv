@@ -1,0 +1,21 @@
+Summary,Issue key,Issue id,Issue Type,Status,Sprint,Custom field (Start date),Custom field (Story point estimate),Parent,Parent summary,Status Category
+Generate words,PAR-43,10042,Story,To Do,PAR Sprint 5,,8,10043,Core Feature,To Do
+Words display,PAR-42,10041,Story,To Do,PAR Sprint 5,,3,10043,Core Feature,To Do
+Generate spellings,PAR-41,10040,Story,To Do,PAR Sprint 5,,8,10043,Core Feature,To Do
+Spelling display,PAR-40,10039,Story,To Do,PAR Sprint 5,,3,10043,Core Feature,To Do
+Generate syllable rules,PAR-39,10038,Story,To Do,PAR Sprint 4,,3,10043,Core Feature,To Do
+Generate phonotactics rules,PAR-38,10037,Story,To Do,PAR Sprint 4,,8,10043,Core Feature,To Do
+Generate vowels in a more logical way and give different values different generation chances,PAR-36,10035,Task,To Do,PAR Sprint 4,,3,10045,Core Fix,To Do
+Move clearing vowels and consonants to store actions,PAR-35,10034,Bug,To Do,PAR Sprint 4,,1,10045,Core Fix,To Do
+Generate All button,PAR-34,10033,Task,To Do,PAR Sprint 4,,1,10043,Core Feature,To Do
+Host a demo website,PAR-31,10030,Story,To Do,PAR Sprint 4,,8,10043,Core Feature,To Do
+Vertical dividers on the consonant table don't extend all the way to the bottom,PAR-24,10023,Bug,To Do,PAR Sprint 4,,1,10045,Core Fix,To Do
+Table shouldn't resize column height when adding/removing sounds,PAR-23,10022,Bug,To Do,PAR Sprint 4,,3,10045,Core Fix,To Do
+Vowel table shouldn't stretch to the height of the Consonant table,PAR-22,10021,Bug,To Do,PAR Sprint 4,,1,10045,Core Fix,To Do
+Clicking on an IPA symbol while not editing shouldn't remove it,PAR-21,10020,Bug,To Do,PAR Sprint 4,,1,10045,Core Fix,To Do
+Load a previously saved language,PAR-19,10018,Story,To Do,PAR Sprint 6,,5,10025,Account System,To Do
+Save language to account,PAR-18,10017,Story,To Do,PAR Sprint 6,,5,10025,Account System,To Do
+Logout of account,PAR-17,10016,Story,To Do,PAR Sprint 6,,3,10025,Account System,To Do
+Login to an account,PAR-16,10015,Story,To Do,PAR Sprint 6,,3,10025,Account System,To Do
+Register an account,PAR-15,10014,Story,To Do,PAR Sprint 6,,3,10025,Account System,To Do
+Setup Firebase application,PAR-14,10013,Story,To Do,PAR Sprint 6,,3,10025,Account System,To Do

@@ -3,22 +3,26 @@
     <div>
       <h6>Onsets</h6>
       <q-list>
-        <q-item>Plosive</q-item>
-        <q-item>Nasal</q-item>
-        <q-item>Fricative</q-item>
-        <q-item>Plosive + Tap</q-item>
-        <q-item>Plosive + Approximant</q-item>
+        <q-item v-for="manner in store.onsets" :key="manner">{{
+          manner.toString()
+        }}</q-item>
       </q-list>
     </div>
     <div>
       <h6>Codas</h6>
       <q-list>
-        <q-item>Plosive</q-item>
-        <q-item>Nasal</q-item>
-        <q-item>Fricative</q-item>
-        <q-item>Tap + Plosive</q-item>
-        <q-item>Fricative + Plosive</q-item>
+        <q-list>
+          <q-item v-for="manner in store.codas" :key="manner">{{
+            manner.toString()
+          }}</q-item>
+        </q-list>
       </q-list>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useLanguageStore } from 'src/stores/language';
+
+const store = useLanguageStore();
+</script>
